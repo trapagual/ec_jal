@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="Book_Author_JPA" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>es.velsoft.eg.modelo.Libros</class>
+    <class>es.velsoft.eg.modelo.ItemsPedido</class>
+    <class>es.velsoft.eg.modelo.Direcciones</class>
+    <class>es.velsoft.eg.modelo.Vcountry</class>
+    <class>es.velsoft.eg.modelo.Agentes</class>
+    <class>es.velsoft.eg.modelo.Pedidos</class>
+    <class>es.velsoft.eg.modelo.Autores</class>
+    <class>es.velsoft.eg.modelo.Vcity</class>
+    <class>es.velsoft.eg.modelo.Servicios</class>
+    <class>es.velsoft.eg.modelo.Clientes</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/bookstore"/>
+      <property name="javax.persistence.jdbc.user" value="bookstore"/>
+      <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="bookstore"/>
+    </properties>
+  </persistence-unit>
+  <!-- en casa:
+    grant all privileges on bookstore.* to bookstore@localhost identified by 'B00kstore#';
+    grant all privileges on world_x.* to bookstore@localhost identified by 'B00kstore#';
+    -->
+</persistence>
