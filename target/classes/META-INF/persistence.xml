@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="Book_Author_JPA" transaction-type="RESOURCE_LOCAL">
-    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>es.velsoft.eg.modelo.Libros</class>
-    <class>es.velsoft.eg.modelo.ItemsPedido</class>
-    <class>es.velsoft.eg.modelo.Direcciones</class>
-    <class>es.velsoft.eg.modelo.Vcountry</class>
+  <persistence-unit name="eg_JPA" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class>es.velsoft.eg.modelo.Servicios</class>
     <class>es.velsoft.eg.modelo.Agentes</class>
     <class>es.velsoft.eg.modelo.Pedidos</class>
-    <class>es.velsoft.eg.modelo.Autores</class>
-    <class>es.velsoft.eg.modelo.Vcity</class>
-    <class>es.velsoft.eg.modelo.Servicios</class>
-    <class>es.velsoft.eg.modelo.Clientes</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/bookstore"/>
-      <property name="javax.persistence.jdbc.user" value="bookstore"/>
-      <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="bookstore"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"/>
+      <property name="hibernate.connection.driver_class" value="org.mariadb.jdbc.Driver"/>
+      <property name="hibernate.connection.url" value="jdbc:mariadb://localhost:3306/dberp_083"/>
+      <property name="hibernate.connection.password" value="sanabria_sql_avg"/>
+      <property name="hibernate.connection.username" value="avg"/>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.connection.characterEncoding" value="UTF-8"/>
     </properties>
   </persistence-unit>
   <!-- en casa:

@@ -7,13 +7,16 @@ package es.velsoft.eg.modelo;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,50 +26,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author alejandro
+ * @author SGEN0290
  */
 @Entity
 @Table(name = "agentes")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Agentes.findAll", query = "SELECT a FROM Agentes a")
-    , @NamedQuery(name = "Agentes.findByIdAgente", query = "SELECT a FROM Agentes a WHERE a.idAgente = :idAgente")
-    , @NamedQuery(name = "Agentes.findByCodAgente", query = "SELECT a FROM Agentes a WHERE a.codAgente = :codAgente")
-    , @NamedQuery(name = "Agentes.findByNombre", query = "SELECT a FROM Agentes a WHERE a.nombre = :nombre")
-    , @NamedQuery(name = "Agentes.findByApellidos", query = "SELECT a FROM Agentes a WHERE a.apellidos = :apellidos")
-    , @NamedQuery(name = "Agentes.findByNick", query = "SELECT a FROM Agentes a WHERE a.nick = :nick")
-    , @NamedQuery(name = "Agentes.findByCodConductor", query = "SELECT a FROM Agentes a WHERE a.codConductor = :codConductor")
-    , @NamedQuery(name = "Agentes.findByCodGrupoAgente", query = "SELECT a FROM Agentes a WHERE a.codGrupoAgente = :codGrupoAgente")
-    , @NamedQuery(name = "Agentes.findByCodDepartamento", query = "SELECT a FROM Agentes a WHERE a.codDepartamento = :codDepartamento")
-    , @NamedQuery(name = "Agentes.findByAutor", query = "SELECT a FROM Agentes a WHERE a.autor = :autor")
-    , @NamedQuery(name = "Agentes.findByFechaInsercion", query = "SELECT a FROM Agentes a WHERE a.fechaInsercion = :fechaInsercion")
-    , @NamedQuery(name = "Agentes.findByMaquina", query = "SELECT a FROM Agentes a WHERE a.maquina = :maquina")
-    , @NamedQuery(name = "Agentes.findByActivo", query = "SELECT a FROM Agentes a WHERE a.activo = :activo")
-    , @NamedQuery(name = "Agentes.findByTrafico", query = "SELECT a FROM Agentes a WHERE a.trafico = :trafico")
-    , @NamedQuery(name = "Agentes.findByEmailRiesgos", query = "SELECT a FROM Agentes a WHERE a.emailRiesgos = :emailRiesgos")
-    , @NamedQuery(name = "Agentes.findByPorcentajeEnganche", query = "SELECT a FROM Agentes a WHERE a.porcentajeEnganche = :porcentajeEnganche")
-    , @NamedQuery(name = "Agentes.findByCodResponsable", query = "SELECT a FROM Agentes a WHERE a.codResponsable = :codResponsable")
-    , @NamedQuery(name = "Agentes.findByTelefono", query = "SELECT a FROM Agentes a WHERE a.telefono = :telefono")
-    , @NamedQuery(name = "Agentes.findByTelefonoDpto", query = "SELECT a FROM Agentes a WHERE a.telefonoDpto = :telefonoDpto")
-    , @NamedQuery(name = "Agentes.findByFaxDpto", query = "SELECT a FROM Agentes a WHERE a.faxDpto = :faxDpto")
-    , @NamedQuery(name = "Agentes.findByConfirmacionExpte", query = "SELECT a FROM Agentes a WHERE a.confirmacionExpte = :confirmacionExpte")
-    , @NamedQuery(name = "Agentes.findByCodgrupo", query = "SELECT a FROM Agentes a WHERE a.codgrupo = :codgrupo")
-    , @NamedQuery(name = "Agentes.findByDesbloqueoMatricula", query = "SELECT a FROM Agentes a WHERE a.desbloqueoMatricula = :desbloqueoMatricula")
-    , @NamedQuery(name = "Agentes.findByObservacionesPlanning", query = "SELECT a FROM Agentes a WHERE a.observacionesPlanning = :observacionesPlanning")
-    , @NamedQuery(name = "Agentes.findByCodresponsableZona", query = "SELECT a FROM Agentes a WHERE a.codresponsableZona = :codresponsableZona")
-    , @NamedQuery(name = "Agentes.findByAltaVehiculosPropios", query = "SELECT a FROM Agentes a WHERE a.altaVehiculosPropios = :altaVehiculosPropios")
-    , @NamedQuery(name = "Agentes.findByAltaVehiculosExternos", query = "SELECT a FROM Agentes a WHERE a.altaVehiculosExternos = :altaVehiculosExternos")
-    , @NamedQuery(name = "Agentes.findByExcluirMargen", query = "SELECT a FROM Agentes a WHERE a.excluirMargen = :excluirMargen")
-    , @NamedQuery(name = "Agentes.findByGestionarVehiculosPlanning", query = "SELECT a FROM Agentes a WHERE a.gestionarVehiculosPlanning = :gestionarVehiculosPlanning")
-    , @NamedQuery(name = "Agentes.findByModificarExptesFacturados", query = "SELECT a FROM Agentes a WHERE a.modificarExptesFacturados = :modificarExptesFacturados")
-    , @NamedQuery(name = "Agentes.findByAsociarExptesFraValidada", query = "SELECT a FROM Agentes a WHERE a.asociarExptesFraValidada = :asociarExptesFraValidada")
-    , @NamedQuery(name = "Agentes.findByEmailCargas", query = "SELECT a FROM Agentes a WHERE a.emailCargas = :emailCargas")
-    , @NamedQuery(name = "Agentes.findByCancelarAnticipos", query = "SELECT a FROM Agentes a WHERE a.cancelarAnticipos = :cancelarAnticipos")
-    , @NamedQuery(name = "Agentes.findByMinPrecioKm", query = "SELECT a FROM Agentes a WHERE a.minPrecioKm = :minPrecioKm")
-    , @NamedQuery(name = "Agentes.findByAgentePlanning", query = "SELECT a FROM Agentes a WHERE a.agentePlanning = :agentePlanning")
-    , @NamedQuery(name = "Agentes.findByGestorCobros", query = "SELECT a FROM Agentes a WHERE a.gestorCobros = :gestorCobros")
-    , @NamedQuery(name = "Agentes.findByGrupajes", query = "SELECT a FROM Agentes a WHERE a.grupajes = :grupajes")
-    , @NamedQuery(name = "Agentes.findByPassword", query = "SELECT a FROM Agentes a WHERE a.password = :password")})
+    @NamedQuery(name = "Agentes.findAll", query = "SELECT a FROM Agentes a")})
 public class Agentes implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -186,7 +152,12 @@ public class Agentes implements Serializable {
     @Column(name = "password")
     private String password;
 
+    @OneToMany(mappedBy="agente")
+    private List<Pedidos> pedidos;
+    
     public Agentes() {
+        super();
+        pedidos = new ArrayList<>();
     }
 
     public Agentes(Integer idAgente) {
@@ -504,6 +475,12 @@ public class Agentes implements Serializable {
         this.password = password;
     }
 
+    public String getCadenaAgente() {
+        return "(" +this.nick + ") " + this.nombre + " " + this.apellidos;
+    }
+
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -526,7 +503,7 @@ public class Agentes implements Serializable {
 
     @Override
     public String toString() {
-        return "es.trapasoft.webbookauthor.modelo.Agentes[ idAgente=" + idAgente + " ]";
+        return "es.velsoft.eg.modelo.Agentes[ idAgente=" + idAgente + " ]";
     }
     
 }

@@ -23,62 +23,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author alejandro
+ * @author SGEN0290
  */
 @Entity
 @Table(name = "servicios")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Servicios.findAll", query = "SELECT s FROM Servicios s")
-    , @NamedQuery(name = "Servicios.findById", query = "SELECT s FROM Servicios s WHERE s.id = :id")
-    , @NamedQuery(name = "Servicios.findByIdPedido", query = "SELECT s FROM Servicios s WHERE s.idPedido = :idPedido")
-    , @NamedQuery(name = "Servicios.findByIdServicioAnterior", query = "SELECT s FROM Servicios s WHERE s.idServicioAnterior = :idServicioAnterior")
-    , @NamedQuery(name = "Servicios.findByIdTipoSvcPedido", query = "SELECT s FROM Servicios s WHERE s.idTipoSvcPedido = :idTipoSvcPedido")
-    , @NamedQuery(name = "Servicios.findByIdDireccion", query = "SELECT s FROM Servicios s WHERE s.idDireccion = :idDireccion")
-    , @NamedQuery(name = "Servicios.findByFechaAlta", query = "SELECT s FROM Servicios s WHERE s.fechaAlta = :fechaAlta")
-    , @NamedQuery(name = "Servicios.findByFechaServicio", query = "SELECT s FROM Servicios s WHERE s.fechaServicio = :fechaServicio")
-    , @NamedQuery(name = "Servicios.findByIdRemolque", query = "SELECT s FROM Servicios s WHERE s.idRemolque = :idRemolque")
-    , @NamedQuery(name = "Servicios.findByIdTractora", query = "SELECT s FROM Servicios s WHERE s.idTractora = :idTractora")
-    , @NamedQuery(name = "Servicios.findByIdConductor", query = "SELECT s FROM Servicios s WHERE s.idConductor = :idConductor")
-    , @NamedQuery(name = "Servicios.findByIdTironero", query = "SELECT s FROM Servicios s WHERE s.idTironero = :idTironero")
-    , @NamedQuery(name = "Servicios.findByIdTransportista", query = "SELECT s FROM Servicios s WHERE s.idTransportista = :idTransportista")
-    , @NamedQuery(name = "Servicios.findByIdTipoServicio", query = "SELECT s FROM Servicios s WHERE s.idTipoServicio = :idTipoServicio")
-    , @NamedQuery(name = "Servicios.findByTransnet", query = "SELECT s FROM Servicios s WHERE s.transnet = :transnet")
-    , @NamedQuery(name = "Servicios.findByTransnetCliente", query = "SELECT s FROM Servicios s WHERE s.transnetCliente = :transnetCliente")
-    , @NamedQuery(name = "Servicios.findBySubcontratado", query = "SELECT s FROM Servicios s WHERE s.subcontratado = :subcontratado")
-    , @NamedQuery(name = "Servicios.findByIdTipoCarga", query = "SELECT s FROM Servicios s WHERE s.idTipoCarga = :idTipoCarga")
-    , @NamedQuery(name = "Servicios.findByTemperatura", query = "SELECT s FROM Servicios s WHERE s.temperatura = :temperatura")
-    , @NamedQuery(name = "Servicios.findByTermografia", query = "SELECT s FROM Servicios s WHERE s.termografia = :termografia")
-    , @NamedQuery(name = "Servicios.findByAdr", query = "SELECT s FROM Servicios s WHERE s.adr = :adr")
-    , @NamedQuery(name = "Servicios.findByPrincipalTransbordo", query = "SELECT s FROM Servicios s WHERE s.principalTransbordo = :principalTransbordo")
-    , @NamedQuery(name = "Servicios.findByTitTarjTransTractor", query = "SELECT s FROM Servicios s WHERE s.titTarjTransTractor = :titTarjTransTractor")
-    , @NamedQuery(name = "Servicios.findByIdCondctrAgencia", query = "SELECT s FROM Servicios s WHERE s.idCondctrAgencia = :idCondctrAgencia")
-    , @NamedQuery(name = "Servicios.findByVerifCondctrAgencia", query = "SELECT s FROM Servicios s WHERE s.verifCondctrAgencia = :verifCondctrAgencia")
-    , @NamedQuery(name = "Servicios.findByCargador", query = "SELECT s FROM Servicios s WHERE s.cargador = :cargador")
-    , @NamedQuery(name = "Servicios.findByCondctrManual", query = "SELECT s FROM Servicios s WHERE s.condctrManual = :condctrManual")
-    , @NamedQuery(name = "Servicios.findByIdFormaPago", query = "SELECT s FROM Servicios s WHERE s.idFormaPago = :idFormaPago")
-    , @NamedQuery(name = "Servicios.findByPrecioKmPagar", query = "SELECT s FROM Servicios s WHERE s.precioKmPagar = :precioKmPagar")
-    , @NamedQuery(name = "Servicios.findByPagoPorcentaje", query = "SELECT s FROM Servicios s WHERE s.pagoPorcentaje = :pagoPorcentaje")
-    , @NamedQuery(name = "Servicios.findByCobroEnDestino", query = "SELECT s FROM Servicios s WHERE s.cobroEnDestino = :cobroEnDestino")
-    , @NamedQuery(name = "Servicios.findByPalets", query = "SELECT s FROM Servicios s WHERE s.palets = :palets")
-    , @NamedQuery(name = "Servicios.findByEuroPalets", query = "SELECT s FROM Servicios s WHERE s.euroPalets = :euroPalets")
-    , @NamedQuery(name = "Servicios.findByEuroCheps", query = "SELECT s FROM Servicios s WHERE s.euroCheps = :euroCheps")
-    , @NamedQuery(name = "Servicios.findByCarros", query = "SELECT s FROM Servicios s WHERE s.carros = :carros")
-    , @NamedQuery(name = "Servicios.findByExistIntrcmbioPalets", query = "SELECT s FROM Servicios s WHERE s.existIntrcmbioPalets = :existIntrcmbioPalets")
-    , @NamedQuery(name = "Servicios.findByKgsCarga", query = "SELECT s FROM Servicios s WHERE s.kgsCarga = :kgsCarga")
-    , @NamedQuery(name = "Servicios.findByAutorizarAutopst", query = "SELECT s FROM Servicios s WHERE s.autorizarAutopst = :autorizarAutopst")
-    , @NamedQuery(name = "Servicios.findByKmsNac", query = "SELECT s FROM Servicios s WHERE s.kmsNac = :kmsNac")
-    , @NamedQuery(name = "Servicios.findByCostKmsNac", query = "SELECT s FROM Servicios s WHERE s.costKmsNac = :costKmsNac")
-    , @NamedQuery(name = "Servicios.findByKmsInt", query = "SELECT s FROM Servicios s WHERE s.kmsInt = :kmsInt")
-    , @NamedQuery(name = "Servicios.findByCostKmsInt", query = "SELECT s FROM Servicios s WHERE s.costKmsInt = :costKmsInt")
-    , @NamedQuery(name = "Servicios.findByKmsAutopstNac", query = "SELECT s FROM Servicios s WHERE s.kmsAutopstNac = :kmsAutopstNac")
-    , @NamedQuery(name = "Servicios.findByCostKmsAutopstNac", query = "SELECT s FROM Servicios s WHERE s.costKmsAutopstNac = :costKmsAutopstNac")
-    , @NamedQuery(name = "Servicios.findByKmsAutopstInt", query = "SELECT s FROM Servicios s WHERE s.kmsAutopstInt = :kmsAutopstInt")
-    , @NamedQuery(name = "Servicios.findByCostKmsAutopstInt", query = "SELECT s FROM Servicios s WHERE s.costKmsAutopstInt = :costKmsAutopstInt")
-    , @NamedQuery(name = "Servicios.findByIdGrupo", query = "SELECT s FROM Servicios s WHERE s.idGrupo = :idGrupo")
-    , @NamedQuery(name = "Servicios.findByIdEstado", query = "SELECT s FROM Servicios s WHERE s.idEstado = :idEstado")
-    , @NamedQuery(name = "Servicios.findByCantidadesAjustadas", query = "SELECT s FROM Servicios s WHERE s.cantidadesAjustadas = :cantidadesAjustadas")
-    , @NamedQuery(name = "Servicios.findByIdProveedor", query = "SELECT s FROM Servicios s WHERE s.idProveedor = :idProveedor")})
+    @NamedQuery(name = "Servicios.findAll", query = "SELECT s FROM Servicios s")})
 public class Servicios implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -620,7 +571,7 @@ public class Servicios implements Serializable {
 
     @Override
     public String toString() {
-        return "es.trapasoft.webbookauthor.modelo.Servicios[ id=" + id + " ]";
+        return "es.velsoft.eg.modelo.Servicios[ id=" + id + " ]";
     }
     
 }

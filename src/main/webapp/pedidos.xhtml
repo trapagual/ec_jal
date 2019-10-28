@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <body style="font-family: sans-serif; font-size: 12px">
+        <ui:composition xmlns="http://www.w3.org/1999/xhtml"   
+                        xmlns:h="http://java.sun.com/jsf/html"
+                        xmlns:f="http://xmlns.jcp.org/jsf/core"
+                        xmlns:ui="http://java.sun.com/jsf/facelets"
+                        xmlns:p="http://primefaces.org/ui"
+                        template="/templates/commonLayout.xhtml">
+
+
+            <ui:define name="content">
+                <h:form>
+                    <style type="text/css">
+                        .ui-datatable .ui-datatable-header {
+                            text-align: right !important;
+                        }
+                    </style>
+
+                    <p:dataTable var="ped" value="#{pedidosBean.lazyModel}" paginator="true" rows="10"
+                                 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                                 rowsPerPageTemplate="10,15,25,35,100" selectionMode="single" selection="#{pedidosBean.selectedPedido}" id="pedidosTable" lazy="true"
+                                 emptyMessage="No hay registros para esos criterios" filteredValue="#{pedidosBean.filtrados}">
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Búsqueda global:" />
+                                <p:inputText id="globalFilter" onkeyup="PF('pedTable').filter()" style="width:150px" placeholder="Texto a buscar..."/>
+                            </p:outputPanel>
+                        </f:facet>      
+                        <p:column style="width: 40px; text-align: right" sortBy="#{ped.agente.idAgente}" filterBy="#{ped.agente.idAgente}" headerText="Id" filterMatchMode="contains">
+                            <h:outputText value="#{ped.agente.idAgente}" />
+                        </p:column>                        
+                        <p:column style="width: 100%" sortBy="#{ped.agente.cadenaAgente}" filterBy="#{ped.agente.cadenaAgente}" headerText="Nombre Comercial" filterMatchMode="contains">
+                            <h:outputText value="#{ped.agente.cadenaAgente}" />
+                        </p:column>
+                        <p:column sortBy="#{ped.refCliente}" filterBy="#{ped.refCliente}" headerText="Ref. Cliente" filterMatchMode="contains">
+                            <h:outputText value="#{ped.refCliente}" />
+                        </p:column>
+                        <p:column style="width: 20%" sortBy="#{ped.fechaAlta}" filterBy="#{ped.fechaAlta}" headerText="F. Pedido" filterMatchMode="contains">
+                            <h:outputText value="#{ped.fechaAlta}" />
+                        </p:column>                        
+                        <p:column style="width: 20%" sortBy="#{ped.fechaIniServicio}" filterBy="#{ped.fechaIniServicio}" headerText="Inicio Svc." filterMatchMode="contains">
+                            <h:outputText value="#{ped.fechaIniServicio}" />
+                        </p:column>                        
+                        <p:column style="width: 20%" sortBy="#{ped.fechaFinServicio}" filterBy="#{ped.fechaFinServicio}" headerText="Fin Svc." filterMatchMode="contains">
+                            <h:outputText value="#{ped.fechaFinServicio}" />
+                        </p:column>                        
+
+                    </p:dataTable >
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>    

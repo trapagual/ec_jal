@@ -7,7 +7,6 @@ package es.velsoft.eg.modelo;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,7 +18,6 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,15 +27,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author alejandro
+ * @author SGEN0290
  */
 @Entity
 @Table(name = "pedidos")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Pedidos.findAll", query = "SELECT p FROM Pedidos p")
-    , @NamedQuery(name = "Pedidos.findById", query = "SELECT p FROM Pedidos p WHERE p.id = :id")
-})
+    @NamedQuery(name = "Pedidos.findAll", query = "SELECT p FROM Pedidos p")})
 public class Pedidos implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,10 +42,12 @@ public class Pedidos implements Serializable {
     @NotNull
     @Column(name = "id")
     private Integer id;
+    /*
     @Basic(optional = false)
     @NotNull
     @Column(name = "id_agente")
     private int idAgente;
+    */
     @Size(max = 1000)
     @Column(name = "cliente_final")
     private String clienteFinal;
@@ -147,16 +145,10 @@ public class Pedidos implements Serializable {
     private int idTipoVehiculo;
     @Column(name = "id_cliente")
     private Integer idCliente;
-    
-    // creadas a mano porque la fk no esta disponible
-    @ManyToOne (optional=true, cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-    @JoinColumn(name="id_agente")
+
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_agente", referencedColumnName = "idAgente")    
     private Agentes agente;
-    
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id_pedido")
-    private List<Servicios> servicios;
-    
 
     public Pedidos() {
     }
@@ -165,9 +157,9 @@ public class Pedidos implements Serializable {
         this.id = id;
     }
 
-    public Pedidos(Integer id, int idAgente, int idTipoCarga, Date fechaAlta, int idTipoVehiculo) {
+    public Pedidos(Integer id, Agentes agente, int idTipoCarga, Date fechaAlta, int idTipoVehiculo) {
         this.id = id;
-        this.idAgente = idAgente;
+        this.agente = agente;
         this.idTipoCarga = idTipoCarga;
         this.fechaAlta = fechaAlta;
         this.idTipoVehiculo = idTipoVehiculo;
@@ -180,7 +172,7 @@ public class Pedidos implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-
+    /*
     public int getIdAgente() {
         return idAgente;
     }
@@ -188,7 +180,7 @@ public class Pedidos implements Serializable {
     public void setIdAgente(int idAgente) {
         this.idAgente = idAgente;
     }
-
+    */
     public String getClienteFinal() {
         return clienteFinal;
     }
@@ -526,25 +518,10 @@ public class Pedidos implements Serializable {
     }
 
     public Agentes getAgente() {
-        return agente;
-    }
-
-    public void setAgente(Agentes agente) {
-        this.agente = agente;
-    }
-
-    public List<Servicios> getServicios() {
-        return servicios;
-    }
-
-    public void setServicios(List<Servicios> servicios) {
-        this.servicios = servicios;
+        return this.agente;
     }
     
     
-    
-    
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -567,7 +544,7 @@ public class Pedidos implements Serializable {
 
     @Override
     public String toString() {
-        return "es.trapasoft.webbookauthor.modelo.Pedidos[ id=" + id + " ]";
+        return "es.velsoft.eg.modelo.Pedidos[ id=" + id + " ]";
     }
-    
+
 }

@@ -18,14 +18,14 @@ public class EntityManagerHelper implements Serializable {
     private static final long serialVersionUID = -8759151984927361294L;
 
     /* esta cadena tiene que coincidir con la propiedad name de la persistence unit en el persistence.xml */
-    private static String entityManager = "Book_Author_JPA";
-    private static final EntityManagerFactory emf;
+    private static final String ENTITYMANAGER = "eg_JPA";
+    private static final EntityManagerFactory EMF;
 
     /* esto es para implementar singleton */
     static {
         try {
 
-            emf = Persistence.createEntityManagerFactory(entityManager);
+            EMF = Persistence.createEntityManagerFactory(ENTITYMANAGER);
         } catch (Throwable ex) {
             ex.printStackTrace();
             throw new ExceptionInInitializerError(ex);
@@ -36,7 +36,7 @@ public class EntityManagerHelper implements Serializable {
         super();
     }
 
-    public static EntityManagerFactory getEmf() {
-        return emf;
+    public static EntityManagerFactory getEMF() {
+        return EMF;
     }
 }
