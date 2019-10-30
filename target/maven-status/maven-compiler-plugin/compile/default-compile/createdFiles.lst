@@ -1,6 +1,13 @@
-es\velsoft\eg\beans\IndexBean.class
-es\velsoft\eg\modelo\Pedidos.class
-es\velsoft\eg\dao\EntityManagerHelper.class
-es\velsoft\eg\beans\PedidosBean.class
+es\velsoft\eg\dao\TablasAuxDao.class
 es\velsoft\eg\modelo\Agentes.class
 es\velsoft\eg\modelo\Servicios.class
+es\velsoft\eg\modelo\ObjLista.class
+es\velsoft\eg\beans\IndexBean.class
+es\velsoft\eg\beans\TablasAuxBean.class
+es\velsoft\eg\modelo\LazyPedidosDataModel.class
+es\velsoft\eg\modelo\Pedidos.class
+es\velsoft\eg\modelo\TablasAux.class
+es\velsoft\eg\dao\EntityManagerHelper.class
+es\velsoft\eg\beans\PedidosBean.class
+es\velsoft\eg\modelo\LazyPedidosSorter.class
+es\velsoft\eg\modelo\VTablasAuxiliares.class

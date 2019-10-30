@@ -1,87 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 
-<h:form style="margin:0px">
-		<p:growl id="messages" showDetail="true" />
-		    <p:menubar stype="width:100%; left:0; top: 0px">
-		        <p:submenu label="Eurogestase">
-		        	<p:menuitem value="Maps" url="#" />
-		        	<p:menuitem value="Opciones Generales" url="#" />
-		        	<p:menuitem value="Contacto" url="#" />
-		        	<p:menuitem value="Salir" url="http://localhost:8080/Menu" icon="pi pi-power-off"/>
-		            <p:separator />
-		        	<p:menuitem value="Acerca de" action="#{menuView.acercade}"  />
-		        </p:submenu>
-		        <p:submenu label="Administración">
-		            <p:submenu label="Mantenimiento">
-		                <p:menuitem value="Agentes" url="#" />
-		                <p:menuitem value="Clientes" url="#" />
-		                <p:menuitem value="Proveedores" url="#" />
-		                <p:menuitem value="Conductores" url="#" />
-			            <p:menuitem value="Planing vacaciones" url="#" />
-			            <p:menuitem value="Conductores agencias" url="#" />
-			            <p:menuitem value="Conductores-Series-Conceptos" url="#" />
-			            <p:menuitem value="Formas Pago" url="#" />
-			            <p:menuitem value="Compañías de Seguros" url="#" />
-			            <p:submenu  label="Tarjetas">
-			                <p:menuitem value="Tarjetas Gas. Auto." url="#" />
-			                <p:menuitem value="Teléfnos Móviles" url="#" />
-			                <p:menuitem value="Tarjetas Móviles" url="#" />
-			                <p:menuitem value="Tarjetas Monedero" url="#" />
-			                <p:menuitem value="Operación Tarjetas" url="#" />
-			            </p:submenu>
-			            <p:submenu  label="Liquidaciones">
-			                <p:menuitem value="Tipos de Unidades" url="#" />
-			                <p:menuitem value="Tipos de Parámetros de liquidación" url="#" />
-			                <p:menuitem value="Parámetros de liquidación" url="#" />
-			            </p:submenu>
-			            <p:menuitem value="Gasolineras" url="#" />
-			            <p:menuitem value="Datos de empresa" url="#" />
-			            <p:submenu label="Bancos">
-			                <p:menuitem value="Listado de oficinas bancarias" url="#" />
-			            </p:submenu>
-			            <p:menuitem value="Usuarios/permisos" url="#" />
-		            </p:submenu>
-		            <p:menuitem value="Facturación" url="#" />
-		            <p:menuitem value="Compras" url="#" />
-		            <p:menuitem value="Entregas" url="#" />
-		             <p:menuitem value="Quit" url="#" /> 
-		        </p:submenu>
-		        <p:submenu label="Contabilidad">
-		        </p:submenu>
-		 
-		        <p:submenu label="Tráfico" >
-		            <p:menuitem value="Pedidos" url="pedidos.xhtml?redirect=true" />
-		            <p:menuitem value="Planning" url="#" />
-		            <p:menuitem value="Expedidntes" url="#" />
-		            <p:menuitem value="Consulta Expedientes" url="#" />
-		            <p:menuitem value="Grupajes" url="#" />
-		            <p:menuitem value="Liquidaciones" url="#" />
-		            <p:menuitem value="Termografíass" url="#" />        
-		            <p:menuitem value="Rutas" url="#" />        
-		        </p:submenu>
-		 
-		        <p:submenu label="Vehículos" >
-		        </p:submenu>
-		 
-		        <p:submenu label="Auxiliar">
-		        </p:submenu>
-		 
-		        <p:submenu label="Quality Control" >
-		        </p:submenu>
-		 
-		        <p:submenu label="Informes Consultas" >
-		        </p:submenu>
-		 
-			</p:menubar>
-	
+    <h:form style="margin:0px">
+        <p:growl id="messages" showDetail="true" />
+        <p:menubar stype="width:100%; left:0; top: 0px">
+            <p:submenu label="Eurogestase">
+                <p:menuitem value="Maps" url="#" />
+                <p:menuitem value="Opciones Generales" url="#" />
+                <p:menuitem value="Contacto" url="#" />
+                <p:menuitem value="Salir" url="http://localhost:8080/Menu" icon="pi pi-power-off"/>
+                <p:separator />
+                <p:menuitem value="Acerca de" action="#{menuView.acercade}"  />
+            </p:submenu>
+            <p:submenu label="Administración">
+                <p:submenu label="Mantenimiento">
+                    <p:menuitem value="Agentes" url="#" />
+                    <p:menuitem value="Clientes" url="#" />
+                    <p:menuitem value="Proveedores" url="#" />
+                    <p:menuitem value="Conductores" url="#" />
+                    <p:menuitem value="Planing vacaciones" url="#" />
+                    <p:menuitem value="Conductores agencias" url="#" />
+                    <p:menuitem value="Conductores-Series-Conceptos" url="#" />
+                    <p:menuitem value="Formas Pago" url="#" />
+                    <p:menuitem value="Compañías de Seguros" url="#" />
+                    <p:submenu  label="Tarjetas">
+                        <p:menuitem value="Tarjetas Gas. Auto." url="#" />
+                        <p:menuitem value="Teléfnos Móviles" url="#" />
+                        <p:menuitem value="Tarjetas Móviles" url="#" />
+                        <p:menuitem value="Tarjetas Monedero" url="#" />
+                        <p:menuitem value="Operación Tarjetas" url="#" />
+                    </p:submenu>
+                    <p:submenu  label="Liquidaciones">
+                        <p:menuitem value="Tipos de Unidades" url="#" />
+                        <p:menuitem value="Tipos de Parámetros de liquidación" url="#" />
+                        <p:menuitem value="Parámetros de liquidación" url="#" />
+                    </p:submenu>
+                    <p:menuitem value="Gasolineras" url="#" />
+                    <p:menuitem value="Datos de empresa" url="#" />
+                    <p:submenu label="Bancos">
+                        <p:menuitem value="Listado de oficinas bancarias" url="#" />
+                    </p:submenu>
+                    <p:menuitem value="Usuarios/permisos" url="#" />
+                    <p:separator />
+                    <p:menuitem value="Tablas Auxiliares" url="tablasAux.xhtml?redirect=true" />
+                </p:submenu>
+                <p:menuitem value="Facturación" url="#" />
+                <p:menuitem value="Compras" url="#" />
+                <p:menuitem value="Entregas" url="#" />
+                <p:menuitem value="Quit" url="#" /> 
+            </p:submenu>
+            <p:submenu label="Contabilidad">
+            </p:submenu>
 
-</h:form>
+            <p:submenu label="Tráfico" >
+                <p:menuitem value="Pedidos" url="pedidos.xhtml?redirect=true" />
+                <p:menuitem value="Planning" url="#" />
+                <p:menuitem value="Expedidntes" url="#" />
+                <p:menuitem value="Consulta Expedientes" url="#" />
+                <p:menuitem value="Grupajes" url="#" />
+                <p:menuitem value="Liquidaciones" url="#" />
+                <p:menuitem value="Termografíass" url="#" />        
+                <p:menuitem value="Rutas" url="#" />        
+            </p:submenu>
+
+            <p:submenu label="Vehículos" >
+            </p:submenu>
+
+            <p:submenu label="Auxiliar">
+            </p:submenu>
+
+            <p:submenu label="Quality Control" >
+            </p:submenu>
+
+            <p:submenu label="Informes Consultas" >
+            </p:submenu>
+
+        </p:menubar>
+
+
+    </h:form>
 
 </html>
