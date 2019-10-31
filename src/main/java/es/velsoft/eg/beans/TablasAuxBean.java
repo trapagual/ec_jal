@@ -14,7 +14,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
-import org.primefaces.event.SelectEvent;
 
 /**
  *
@@ -29,7 +28,7 @@ public class TablasAuxBean implements Serializable {
 
     private List<VTablasAuxiliares> tablas;
 
-    private VTablasAuxiliares tablaSelected;
+    private String tablaSelected;
 
     private TablasAuxDao taDao;
 
@@ -37,6 +36,7 @@ public class TablasAuxBean implements Serializable {
 
     public TablasAuxBean() {
         this.tablas = new ArrayList<>();
+        this.tablaSelected = null;
     }
 
     @PostConstruct
@@ -55,18 +55,19 @@ public class TablasAuxBean implements Serializable {
         return tablas;
     }
 
-    public VTablasAuxiliares getTablaSelected() {
+    public String getTablaSelected() {
         return tablaSelected;
     }
 
-    public void setTablaSelected(VTablasAuxiliares tablaSelected) {
+    public void setTablaSelected(String tablaSelected) {
         this.tablaSelected = tablaSelected;
     }
 
     public void handleSelect(ValueChangeEvent event) {
-        tablaSelected = (VTablasAuxiliares)  event.getNewValue();
+        // cargo el valor que me devuelve el evento en 
+        tablaSelected=((String)  event.getNewValue()); 
         FacesContext.getCurrentInstance()
-                .addMessage("msgSelectorTA", new FacesMessage(FacesMessage.SEVERITY_INFO, "Seleccionada", tablaSelected.getNombre()));
+                .addMessage("msgSelectorTA", new FacesMessage(FacesMessage.SEVERITY_INFO, "Seleccionada", tablaSelected));
 
         LOG.log(Level.FINE,"Tabla Seleccionada: %s", tablaSelected.toString());
     }

@@ -25,14 +25,11 @@
                         <f:selectItems value="#{tablasAuxBean.tablas}" 
                                        var="ta" 
                                        itemLabel="#{ta.nombre}" 
-                                       itemValue="#{ta}" />
-
+                                       itemValue="#{ta.nombre}" />
                         <p:column>
                             #{t.nombre}
                         </p:column>
-                        <p:column>
-                            Nuevo - #{t.nombre}
-                        </p:column>                        
+                      
 
                     </p:selectOneMenu>
 
