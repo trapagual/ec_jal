@@ -13,7 +13,7 @@
             <ui:define name="content">
                 <h:form>
 
-                    <p:selectOneListbox id="select_ta" 
+                    <p:selectOneMenu id="select_ta" 
                                         value="#{tablasAuxBean.tablaSelected}" 
                                         var="t" 
                                         filter="true" filterMatchMode="contains"
@@ -31,7 +31,7 @@
                             #{t.nombre}
                         </p:column>
 
-                    </p:selectOneListbox>
+                    </p:selectOneMenu>
 
                     <p:messages for="msgSelectorTA" id="msgSelectorTA" />
                 </h:form>
