@@ -1,4 +1,5 @@
 es\velsoft\eg\dao\TablasAuxDao.class
+es\velsoft\eg\dao\ProbadorEMF.class
 es\velsoft\eg\modelo\Agentes.class
 es\velsoft\eg\modelo\Servicios.class
 es\velsoft\eg\modelo\ObjLista.class
