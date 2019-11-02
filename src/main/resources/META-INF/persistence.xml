@@ -10,8 +10,8 @@
       <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"/>
       <property name="hibernate.connection.driver_class" value="org.mariadb.jdbc.Driver"/>
       <property name="hibernate.connection.url" value="jdbc:mariadb://localhost:3306/dberp_083"/>
-      <property name="hibernate.connection.password" value="sanabria_sql_avg"/>
-      <property name="hibernate.connection.username" value="avg"/>
+      <property name="hibernate.connection.password" value="XXXXXXXX"/>
+      <property name="hibernate.connection.username" value="XXXXXXXX"/>
       <property name="hibernate.show_sql" value="true"/>
       <property name="hibernate.connection.characterEncoding" value="UTF-8"/>
     </properties>
@@ -25,9 +25,9 @@
     <properties>
       <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
       <property name="hibernate.connection.driver_class" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-      <property name="hibernate.connection.url" value="jdbc:sqlserver://jalonso.info:14333;databaseName=dberp_083"/>
-      <property name="hibernate.connection.password" value="sanabria_sql_avg"/>
-      <property name="hibernate.connection.username" value="avg"/>
+      <property name="hibernate.connection.url" value="jdbc:sqlserver://HOST:PORT;databaseName=dberp_083"/>
+      <property name="hibernate.connection.password" value="XXXXXXX"/>
+      <property name="hibernate.connection.username" value="XXXXXXX"/>
       <property name="hibernate.show_sql" value="true"/>
       <property name="hibernate.connection.characterEncoding" value="UTF-8"/>
     </properties>

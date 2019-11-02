@@ -9,27 +9,23 @@
                         xmlns:p="http://primefaces.org/ui"
                         template="/templates/commonLayout.xhtml">
 
-
             <ui:define name="content">
                 <h:form>
+                    <p:growl id="msgs" showDetail="true" />
 
                     <p:selectOneMenu id="select_ta" 
-                                        value="#{tablasAuxBean.tablaSelected}" 
-                                        var="t" 
-                                        filter="true" filterMatchMode="contains"
-                                        style="width: 50%; min-width: 300px">
+                                     value="#{tablasAuxBean.tablaSelected}" 
+                                     onchange="submit()"
+                                     style="width: 50%; min-width: 300px">
                         <p:ajax 
                             listener="#{tablasAuxBean.handleSelect}"
-                            update="msgSelectorTA"
-                            process="@form"/>
-                        <f:selectItems value="#{tablasAuxBean.tablas}" 
-                                       var="ta" 
-                                       itemLabel="#{ta.nombre}" 
-                                       itemValue="#{ta.nombre}" />
-                        <p:column>
-                            #{t.nombre}
-                        </p:column>
-                      
+                            update="msgSelectorTA, msgs"/>
+                        <f:selectItem itemLabel="Elije una..."/>
+
+                        <f:selectItems value="#{tablasAuxBean.selectItems}"
+                                       var="ta"
+                                       itemLabel="#{ta.nombre}"
+                                       />
 
                     </p:selectOneMenu>
 
@@ -37,6 +33,7 @@
                 </h:form>
 
             </ui:define>
+
         </ui:composition>
     </body>
 </html>    

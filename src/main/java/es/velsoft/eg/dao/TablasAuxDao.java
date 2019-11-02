@@ -32,7 +32,7 @@ public class TablasAuxDao {
     private static final String SQL_UPDATE = "UPDATE :nt SET descripcion = :desc WHERE id = :id";
     private static final String SQL_GET_LISTA_TA_SQLSERVER = "SELECT id, Nombre, Columnas FROM vTablasAuxiliares ORDER BY Nombre";
     private static final String SQL_GET_LISTA_TA_MYSQL = "SELECT" +
-        " (@rownum:=@rownum + 1) AS rownumber," +
+        " (@rownum:=@rownum + 1) AS id," +
         " t.TABLE_NAME AS Nombre, count(c.COLUMN_NAME) AS Columnas" +
         " FROM information_schema.`TABLES` t" +
         " JOIN information_schema.`COLUMNS` c ON t.table_catalog = c.TABLE_CATALOG AND t.table_schema = c.TABLE_SCHEMA AND t.table_name = c.TABLE_NAME" +

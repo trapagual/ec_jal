@@ -13,7 +13,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ValueChangeEvent;
+import javax.faces.model.SelectItem;
 
 /**
  *
@@ -27,15 +27,23 @@ public class TablasAuxBean implements Serializable {
     private static final Logger LOG = Logger.getLogger(TablasAuxBean.class.getName());
 
     private List<VTablasAuxiliares> tablas;
+    
+    private List<SelectItem> selectItems;
 
     private String tablaSelected;
 
     private TablasAuxDao taDao;
 
+    
     private TablasAux datosTA;
 
     public TablasAuxBean() {
+        SelectItem s;
         this.tablas = new ArrayList<>();
+        for (VTablasAuxiliares t : tablas) {
+            s = new SelectItem(t.getId(), t.getNombre());
+            selectItems.add(s);
+        }
         this.tablaSelected = null;
     }
 
@@ -63,13 +71,19 @@ public class TablasAuxBean implements Serializable {
         this.tablaSelected = tablaSelected;
     }
 
-    public void handleSelect(ValueChangeEvent event) {
-        // cargo el valor que me devuelve el evento en 
-        tablaSelected=((String)  event.getNewValue()); 
-        FacesContext.getCurrentInstance()
-                .addMessage("msgSelectorTA", new FacesMessage(FacesMessage.SEVERITY_INFO, "Seleccionada", tablaSelected));
+    public List<SelectItem> getSelectItems() {
+        return selectItems;
+    }
 
-        LOG.log(Level.FINE,"Tabla Seleccionada: %s", tablaSelected.toString());
+    public void setSelectItems(List<SelectItem> selectItems) {
+        this.selectItems = selectItems;
+    }
+
+    public void handleSelect() {
+        
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Successful",  "Seleccionado: " + tablaSelected) );
+        LOG.log(Level.FINE,"Tabla Seleccionada: %s", tablaSelected);
     }
 }
 
